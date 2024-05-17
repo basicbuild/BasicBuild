@@ -18,11 +18,6 @@ int main(int argc, char *argv[])
     std::string value = _map["key"];
     std::cout << "map size:" << _map.size();
 
-    //   能切换， 和选择是qml还是widget显示
-    "QuickUIFrame";
-    "WidgetsUIFrame";
-
-    QCoreApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
     GuiApplication app(argc, argv);
     int ret = app.exec();
     return ret;

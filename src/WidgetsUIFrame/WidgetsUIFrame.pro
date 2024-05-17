@@ -1,4 +1,4 @@
-QT += widgets
+QT += widgets gui core
 
 TEMPLATE = lib
 DEFINES += WIDGETSUIFRAME_LIBRARY

@@ -2,13 +2,15 @@
 #define GUIAPPLICATION_H
 
 #include <QGuiApplication>
+#include <QApplication>
 
 namespace Internal {
 class GuiApplicationPrivate;
 }
 
-class GuiApplication : public QGuiApplication
+class GuiApplication : public QApplication
 {
+    Q_OBJECT
 public:
     GuiApplication(int& argc, char** argv);
     ~GuiApplication();

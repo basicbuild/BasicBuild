@@ -1,4 +1,4 @@
-QT += quick core gui
+QT += quick widgets core gui  #core5compat
 
 CONFIG += c++17
 DEBUG_NAME = QuickUIFramed
@@ -52,15 +52,28 @@ win32:CONFIG(release, debug|release){
 
 # @brief 包含路径
 INCLUDEPATH += $$PWD/../Base \
-               $$PWD/../WidgetsUIFrame
+               $$PWD/../Base/utils \
+               $$PWD/../Base/utils/common \
+               $$PWD/../WidgetsUIFrame \
+
+INCLUDEPATH += .\
+               ./src/common \
+
 # @brief 依赖路径
 DEPENDPATH += $$PWD/../Base \                           # DEPENDPATH 是指定那些文件在修改后需要重新运行 qmake 的路径
               $$PWD/../WidgetsUIFrame
 
 #####################################################
 
+HEADERS += \
+    src/feature/FeatureModel.h \
+    src/GlobalTools.h \
+    src/GuiApplication.h \
+    src/common/Singleton.h
+
 SOURCES += \
         main.cpp \
+        src/feature/FeatureModel.cpp \
         src/GlobalTools.cpp \
         src/GuiApplication.cpp
 
@@ -78,6 +91,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-    src/GlobalTools.h \
-    src/GuiApplication.h
+

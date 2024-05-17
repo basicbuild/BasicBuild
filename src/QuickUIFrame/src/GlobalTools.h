@@ -2,7 +2,7 @@
 #define GLOBALTOOLS_H
 
 #include <QObject>
-#include "utils/common/Singleton.h"
+#include "Singleton.h"
 
 class GlobalTools : public QObject
 {
@@ -11,9 +11,19 @@ public:
     explicit GlobalTools(QObject *parent = nullptr);
     void aaaa() {}
 
+    Q_INVOKABLE void showQuickUIFrame() {
+        emit sigShowQuickUIFrame();
+    }
+
+    Q_INVOKABLE void showWidgetsUIFrame() {
+        emit sigShowWidgetsUIFrame();
+    }
+
 signals:
+    void sigShowQuickUIFrame();    // 显示Quick ui frame
+    void sigShowWidgetsUIFrame();  // 显示Widgets ui frame
 };
 
-#define GLOBALTOOLS Singleton<GlobalTools>::instance()
+#define GLOBALTOOLS QuSingleton<GlobalTools>::instance()
 
 #endif // GLOBALTOOLS_H

@@ -2,7 +2,6 @@
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15  // 引入 Material 风格
 
-
 Item {
     width: 400
     height: 300
@@ -34,6 +33,11 @@ Item {
             radius: 5 // 设置圆角半径
             color: id_btn_quick.pressed ? "lightgray" : "white"
         }
+
+        onClicked: {
+            globalTools.sigShowQuickUIFrame()
+
+        }
     }
 
     Button {
@@ -56,6 +60,11 @@ Item {
         background: Rectangle {
             radius: 5 // 设置圆角半径
             color: id_btn_widgets.pressed ? "lightgray" : "white"
+        }
+
+        onClicked: {
+            globalTools.sigShowWidgetsUIFrame()
+
         }
     }
 

@@ -42,15 +42,20 @@ win32:CONFIG(release, debug|release){
 }
 
 #######################个性配置#########################
+# @brief 包含路径
+INCLUDEPATH += ./utils \
+               ./utils/common \
 
 #####################################################
 
 SOURCES += \
-    Base.cpp
+    Base.cpp \
+    utils/common/BaseListModel.cpp
 
 HEADERS += \
     Base_global.h \
     Base.h \
+    utils/common/BaseListModel.h \
     utils/common/Singleton.h
 
 # Default rules for deployment.

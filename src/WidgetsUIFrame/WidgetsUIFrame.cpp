@@ -1,3 +1,9 @@
 ﻿#include "WidgetsUIFrame.h"
 
-WidgetUIFrame::WidgetUIFrame() {}
+WidgetUIFrame::WidgetUIFrame(QWidget* parent)
+    : QMainWindow(parent)
+{
+
+
+
+}
