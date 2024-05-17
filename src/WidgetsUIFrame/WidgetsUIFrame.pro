@@ -1,15 +1,15 @@
-QT -= gui
+QT += widgets
 
 TEMPLATE = lib
-DEFINES += BASE_LIBRARY
+DEFINES += WIDGETSUIFRAME_LIBRARY
 CONFIG += c++17
-DEBUG_NAME = Based
-RELEASE_NAME = Base
+DEBUG_NAME = WidgetsUIFramed
+RELEASE_NAME = WidgetsUIFrame
 
 #######################通用配置#########################
 # $$PWD .pro或.pri所在的路径
-BUILD_DIR = $$PWD/../build
-OUTPUT_DIR = $$PWD/../output
+BUILD_DIR = $$PWD/../../build
+OUTPUT_DIR = $$PWD/../../output
 
 # @brief 配置临时文件和生成文件位置
 win32:CONFIG(debug, debug|release){
@@ -26,6 +26,7 @@ win32:CONFIG(release, debug|release){
 }
 
 # @brief 配置目标文件生成位置
+# DESTDIR 目标文件路径
 win32:CONFIG(debug, debug|release){
     DESTDIR = $$OUTPUT_DIR/debug
 }
@@ -44,16 +45,18 @@ win32:CONFIG(release, debug|release){
 #######################个性配置#########################
 
 #####################################################
-
 SOURCES += \
-    Base.cpp
+    WidgetsUIFrame.cpp
 
 HEADERS += \
-    Base_global.h \
-    Base.h
+    WidgetsUIFrame_global.h \
+    WidgetsUIFrame.h
 
 # Default rules for deployment.
 unix {
     target.path = /usr/lib
 }
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc

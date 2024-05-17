@@ -1,21 +1,20 @@
-QT += quick
+QT += quick core gui
 
 CONFIG += c++17
-TARGET = QMLUIFrame # @brief 指定生成的应用程序名和图标
-DEBUG_NAME = QMLUIFramed
-RELEASE_NAME = QMLUIFrame
+DEBUG_NAME = QuickUIFramed
+RELEASE_NAME = QuickUIFrame
 
 #######################通用配置#########################
 # $$PWD .pro或.pri所在的路径
-BUILD_DIR = $$PWD/../build                      # 临时文件生成的根目录
-OUTPUT_DIR = $$PWD/../output               # 目标文件生成的根目录
+BUILD_DIR = $$PWD/../../build                      # 临时文件生成的根目录
+OUTPUT_DIR = $$PWD/../../output                    # 目标文件生成的根目录
 
 # @brief 配置临时文件和生成文件位置
 win32:CONFIG(debug, debug|release){
-    MOC_DIR = $$BUILD_DIR/debug/$$TARGET/build_moc         #指定moc命令将含Q_OBJECT的头文件转换成标准.h文件的存放目录
-    UI_DIR = $$BUILD_DIR/debug/$$TARGET/build_uic               #指定rcc命令将.qrc文件转换成qrc_*.h文件的存放目录
-    RCC_DIR = $$BUILD_DIR/debug/$$TARGET/build_rcc           #指定rcc命令将.qrc文件转换成qrc_*.h文件的存放目录
-    OBJECTS_DIR = $$BUILD_DIR/debug/$$TARGET/build_obj   #指定目标文件(obj)的存放目录
+    MOC_DIR = $$BUILD_DIR/debug/$$TARGET/build_moc       # 指定moc命令将含Q_OBJECT的头文件转换成标准.h文件的存放目录
+    UI_DIR = $$BUILD_DIR/debug/$$TARGET/build_uic        # 指定rcc命令将.qrc文件转换成qrc_*.h文件的存放目录
+    RCC_DIR = $$BUILD_DIR/debug/$$TARGET/build_rcc       # 指定rcc命令将.qrc文件转换成qrc_*.h文件的存放目录
+    OBJECTS_DIR = $$BUILD_DIR/debug/$$TARGET/build_obj   # 指定目标文件(obj)的存放目录
 }
 win32:CONFIG(release, debug|release){
     MOC_DIR = $$BUILD_DIR/release/$$TARGET/build_moc
@@ -44,26 +43,29 @@ win32:CONFIG(release, debug|release){
 # @brief 库的引用
 win32:CONFIG(debug, debug|release){
     LIBS += -L$$OUTPUT_DIR/debug/ -lBased
-    LIBS += -L$$OUTPUT_DIR/debug/ -lWidgetUIFramed
+    LIBS += -L$$OUTPUT_DIR/debug/ -lWidgetsUIFramed
 }
 win32:CONFIG(release, debug|release){
     LIBS += -L$$OUTPUT_DIR/release/ -lBase
-    LIBS += -L$$OUTPUT_DIR/release/ -lWidgetUIFrame
+    LIBS += -L$$OUTPUT_DIR/release/ -lWidgetsUIFrame
 }
 
 # @brief 包含路径
 INCLUDEPATH += $$PWD/../Base \
-                            $$PWD/../WidgetUIFrame
+               $$PWD/../WidgetsUIFrame
 # @brief 依赖路径
-DEPENDPATH += $$PWD/../Base \   # DEPENDPATH 是指定那些文件在修改后需要重新运行 qmake 的路径
-                           $$PWD/../WidgetUIFrame
+DEPENDPATH += $$PWD/../Base \                           # DEPENDPATH 是指定那些文件在修改后需要重新运行 qmake 的路径
+              $$PWD/../WidgetsUIFrame
 
 #####################################################
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+        src/GlobalTools.cpp \
+        src/GuiApplication.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    resources.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -75,3 +77,7 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+    src/GlobalTools.h \
+    src/GuiApplication.h

@@ -1,7 +1,7 @@
 TEMPLATE = subdirs
 CONFIG += ordered
 SUBDIRS += \
-    Base/Base.pro \
-    WidgetUIFrame/WidgetUIFrame.pro \
-    QMLUIFrame/QMLUIFrame.pro \
+    src/Base/Base.pro \
+    src/WidgetsUIFrame/WidgetsUIFrame.pro \
+    src/QuickUIFrame/QuickUIFrame.pro \
 
