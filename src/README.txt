@@ -6,4 +6,4 @@ WidgetsUIFrame       类 app
 
 UserCenterService   类 业务服务         跨库的 http封装能否使用  base基础网络模块， 该服务是业务实现
 GeoService                类 业务服务
-
+111
