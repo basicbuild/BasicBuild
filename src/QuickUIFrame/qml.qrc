@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>select.qml</file>
-    </qresource>
-</RCC>
