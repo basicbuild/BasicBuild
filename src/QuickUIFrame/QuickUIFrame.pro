@@ -26,11 +26,31 @@ win32:CONFIG(release, debug|release){
     OBJECTS_DIR = $$BUILD_DIR/release/$$TARGET/build_obj
 }
 
+macx:CONFIG(debug, debug|release){
+    MOC_DIR = $$BUILD_DIR/debug/$$TARGET/build_moc
+    UI_DIR = $$BUILD_DIR/debug/$$TARGET/build_uic
+    RCC_DIR = $$BUILD_DIR/debug/$$TARGET/build_rcc
+    OBJECTS_DIR = $$BUILD_DIR/debug/$$TARGET/build_obj
+}
+macx:CONFIG(release, debug|release){
+    MOC_DIR = $$BUILD_DIR/release/$$TARGET/build_moc
+    UI_DIR = $$BUILD_DIR/release/$$TARGET/build_uic
+    RCC_DIR = $$BUILD_DIR/release/$$TARGET/build_rcc
+    OBJECTS_DIR = $$BUILD_DIR/release/$$TARGET/build_obj
+}
+
 # @brief 配置目标文件生成位置
 win32:CONFIG(debug, debug|release){
     DESTDIR = $$OUTPUT_DIR/debug
 }
 win32:CONFIG(release, debug|release){
+    DESTDIR = $$OUTPUT_DIR/release
+}
+
+macx:CONFIG(debug, debug|release){
+    DESTDIR = $$OUTPUT_DIR/debug
+}
+macx:CONFIG(release, debug|release){
     DESTDIR = $$OUTPUT_DIR/release
 }
 
@@ -42,6 +62,13 @@ win32:CONFIG(release, debug|release){
     TARGET  = $$RELEASE_NAME
 }
 
+macx:CONFIG(debug, debug|release){
+    TARGET  = $$DEBUG_NAME
+}
+macx:CONFIG(release, debug|release){
+    TARGET  = $$RELEASE_NAME
+}
+
 #######################个性配置#########################
 # @brief 库的引用
 win32:CONFIG(debug, debug|release){
@@ -49,6 +76,15 @@ win32:CONFIG(debug, debug|release){
     LIBS += -L$$OUTPUT_DIR/debug/ -lWidgetsUIFramed
 }
 win32:CONFIG(release, debug|release){
+    LIBS += -L$$OUTPUT_DIR/release/ -lBase
+    LIBS += -L$$OUTPUT_DIR/release/ -lWidgetsUIFrame
+}
+
+macx:CONFIG(debug, debug|release){
+    LIBS += -L$$OUTPUT_DIR/debug/ -lBased
+    LIBS += -L$$OUTPUT_DIR/debug/ -lWidgetsUIFramed
+}
+macx:CONFIG(release, debug|release){
     LIBS += -L$$OUTPUT_DIR/release/ -lBase
     LIBS += -L$$OUTPUT_DIR/release/ -lWidgetsUIFrame
 }
