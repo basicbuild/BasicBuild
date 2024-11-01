@@ -6,7 +6,7 @@ CONFIG += c++17
 DEBUG_NAME = Based
 RELEASE_NAME = Base
 
-#######################通用配置#########################
+#######################通用配置########################
 # $$PWD .pro或.pri所在的路径
 BUILD_DIR = $$PWD/../../build
 OUTPUT_DIR = $$PWD/../../output
