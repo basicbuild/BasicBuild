@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>select.qml</file>
+        <file>qml/commons/button/BButtonBase.qml</file>
+        <file>qml/commons/BMouseArea.qml</file>
+        <file>qml/commons/BTimer.qml</file>
+        <file>qml/commons/BLoader.qml</file>
+        <file>qml/commons/BItem.qml</file>
+        <file>qml/commons/text/BTextBase.qml</file>
+        <file>qml/commons/text/BText.qml</file>
+        <file>qml/commons/text/BTextMedium.qml</file>
+        <file>qml/commons/button/BButton.qml</file>
+        <file>qml/home/BFeatureMenuTab.qml</file>
+        <file>qml/home/BFeatureDetailTab.qml</file>
+        <file>qml/home/BHomeContentView.qml</file>
+        <file>qml/commons/BaseListView.qml</file>
+        <file>qml/home/feature/basic/Exception.qml</file>
+        <file>qml/home/feature/basic/LanguageBasic.qml</file>
+        <file>qml/components/HListViewContainer.qml</file>
+        <file>qml/components/VListViewContainer.qml</file>
+    </qresource>
+</RCC>
